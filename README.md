@@ -2,4 +2,4 @@ This repository contains reading notes for books I'm currently reading or have a
 
 List:
 
-1. Design Patterns in Morden C++
+1. Design Patterns in Morden C++ [ >>------------------------ ] (7.7%)

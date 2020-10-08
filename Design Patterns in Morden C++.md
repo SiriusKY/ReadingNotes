@@ -50,3 +50,14 @@ public:
 * Dependency Inversion Principle (DIP)
     1. High-level modules should not depend on low-level modules. Both should depend on abstractions.
     2. Abstractions should not depend on details. Details should depend on abstractions.
+
+## CHAPTER 2: Builder
+### Key characteristics of a Builder:
+* Builders can have a fluent interface that is usable for complicated construction using a single invocation chain. To support this, builder functions should return this or *this.
+* To force the user of the API to use a Builder, we can make the target object’s constructors inaccessible and then define a static create() function that returns the builder.
+* A builder can be coerced to the object itself by defining the appropriate operator.
+* Groovy-style builders are possible in C++ thanks
+to uniform initializer syntax. This approach is very general, and allows for the creation of diverse DSLs.
+* A single builder interface can expose multiple subbuilders. Through clever use of inheritance and fluent interfaces, one can jump from one builder to another with ease.
+
+Note that: simple objects that are unambiguously constructed from a limited number of sensibly named constructor parameters should probably use a constructor (or dependency injection) without necessitating a Builder as such.
