@@ -240,3 +240,11 @@ auto tea = drink_factory.make_drink("tea");
 * A factory can implement caching and other storage optimizations; it is also a natural choice for approaches such as pooling or the Singleton pattern.
 
 Note: Factory is different from Builder in that, with a Factory, you typically create an object in one go, whereas with Builder, you construct the object piecewise by providing information in parts.
+
+## CHAPTER 4: Prototype
+* Prototype: A model object that we can make copies of, customize those copies, and then use them.
+* The Prototype design pattern embodies the notion of deep copying of objects so that, instead of doing full initialization each time, you can take a premade object, copy it, fiddle it a little bit, and then use it independently of the original.
+
+### The only two ways of implementing the Prototype pattern in C++
+* Writing code that correctly duplicates your object, that is, performs a deep copy. This can be done in a copy constructor/copy assignment operator or in a separate member function.
+* Write code for the support of serialization/ deserialization and then use this mechanism to implement cloning as serialization immediately followed by deserialization. This carries the extra computational cost; its significance depends on how often you need to do the copying. The *only* advantage of this approach, compared with using, say, copy constructors, is that you get serialization for free.
