@@ -248,3 +248,37 @@ Note: Factory is different from Builder in that, with a Factory, you typically c
 ### The only two ways of implementing the Prototype pattern in C++
 * Writing code that correctly duplicates your object, that is, performs a deep copy. This can be done in a copy constructor/copy assignment operator or in a separate member function.
 * Write code for the support of serialization/ deserialization and then use this mechanism to implement cloning as serialization immediately followed by deserialization. This carries the extra computational cost; its significance depends on how often you need to do the copying. The *only* advantage of this approach, compared with using, say, copy constructors, is that you get serialization for free.
+
+## CHAPTER 5: Singleton
+### Classic Implementation
+```cpp
+struct Database {
+protected:
+    Database() {
+        /* do what you need to do */
+    }
+
+public:
+    static Database &get() {
+        // thread-safe in C++11
+        static Database database;
+        return database;
+    }
+
+    Database(Database const &) = delete;
+
+    Database(Database &&) = delete;
+
+    Database &operator=(Database const &) = delete;
+
+    Database &operator=(Database &&) = delete;
+};
+```
+### A particularly nasty trick
+You can impletment get() as a heap allocation (so that only the pointer, not the entire object, is static).
+```cpp
+static Database &get() {
+    static Database *database = new Database();
+    return *database;
+}
+```
