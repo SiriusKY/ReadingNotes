@@ -282,3 +282,10 @@ static Database &get() {
     return *database;
 }
 ```
+
+## CHAPTER 6: Adapter
+Adapter allows you to adapt the interface you have to the interface you need.
+### The only issue with adapters 
+In the process of adaptation, you sometimes end up generating temporary data so as to satisfy some other representation of data. And when this happens, turn to caching: 
+* Ensure that new data is only generated when necessary. 
+* Clean up stale data when the cached objects have changed.
