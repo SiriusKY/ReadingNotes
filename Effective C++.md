@@ -16,7 +16,7 @@ prefer the *compiler* to the *preprocessor*
 * For simple constants, prefer *const* objects or enums to #defines.
 * For function-like macros, prefer inline functions to #defines.
 
-Note: inline is just a suggestion for compiler, whether the funtions are finally inlined depends on compiler, so I'm not sure whether we should use inline nowadays.
+> Note: inline is just a suggestion for compiler, whether the funtions are finally inlined depends on compiler, so I'm not sure whether we should use inline nowadays.
 
 ### Item 3: Use const whenever possible
 Example:

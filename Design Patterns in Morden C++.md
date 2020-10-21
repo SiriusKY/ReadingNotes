@@ -60,7 +60,7 @@ public:
 to uniform initializer syntax. This approach is very general, and allows for the creation of diverse DSLs.
 * A single builder interface can expose multiple subbuilders. Through clever use of inheritance and fluent interfaces, one can jump from one builder to another with ease.
 
-Note: simple objects that are unambiguously constructed from a limited number of sensibly named constructor parameters should probably use a constructor (or dependency injection) without necessitating a Builder as such.
+> Note: simple objects that are unambiguously constructed from a limited number of sensibly named constructor parameters should probably use a constructor (or dependency injection) without necessitating a Builder as such.
 
 ## CHAPTER 3: Factories
 
@@ -239,7 +239,7 @@ auto tea = drink_factory.make_drink("tea");
 * A factory can exhibit polymorphic behavior, instantiating a class and returning it through its base class’ reference or pointer.
 * A factory can implement caching and other storage optimizations; it is also a natural choice for approaches such as pooling or the Singleton pattern.
 
-Note: Factory is different from Builder in that, with a Factory, you typically create an object in one go, whereas with Builder, you construct the object piecewise by providing information in parts.
+> Note: Factory is different from Builder in that, with a Factory, you typically create an object in one go, whereas with Builder, you construct the object piecewise by providing information in parts.
 
 ## CHAPTER 4: Prototype
 * Prototype: A model object that we can make copies of, customize those copies, and then use them.
@@ -373,7 +373,7 @@ raster_circle.resize(2);
 raster_circle.draw();
 ```
 
-Note: The Bridge serving as a connector or glue, connecting two pieces together. The use of abstraction (interfaces) allows components to interact with one another without really being aware of the concrete implementations. That said, the participants of the Bridge pattern do need to be aware of each other’s existence.
+> Note: The Bridge serving as a connector or glue, connecting two pieces together. The use of abstraction (interfaces) allows components to interact with one another without really being aware of the concrete implementations. That said, the participants of the Bridge pattern do need to be aware of each other’s existence.
 
 ## CHAPTER 8: Composite
 The Composite design pattern allows us to provide identical interfaces for individual objects and collections of objects.
@@ -449,4 +449,4 @@ struct SomeNeurons {
     }
 };
 ```
-Note: the *Neural Networks* case is a much special case in my opinion... It seems hard to find a scenario perfectly suit this case.
+> Note: the *Neural Networks* case is a much special case in my opinion... It seems hard to find a scenario perfectly suit this case.
