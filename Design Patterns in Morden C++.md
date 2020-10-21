@@ -374,3 +374,79 @@ raster_circle.draw();
 ```
 
 Note: The Bridge serving as a connector or glue, connecting two pieces together. The use of abstraction (interfaces) allows components to interact with one another without really being aware of the concrete implementations. That said, the participants of the Bridge pattern do need to be aware of each other’s existence.
+
+## CHAPTER 8: Composite
+The Composite design pattern allows us to provide identical interfaces for individual objects and collections of objects.
+
+### Array Backed Properties
+```cpp
+class Creature {
+    enum Abilities {
+        str, agl, intl, count
+    };
+    array<int, count> abilities;
+
+    int get_strength() const { return abilities[str]; }
+
+    void set_strength(int value) { abilities[str] = value; }
+
+    // same for other properties
+};
+```
+This makes calculations such as sum(), average(), and max() become truly trivial.
+
+### Grouping Graphic Objects
+```cpp
+struct GraphicObject {
+    virtual void draw() = 0;
+};
+
+struct Circle : GraphicObject {
+    void draw() override {
+        std::cout << "Circle" << std::endl;
+    }
+};
+
+struct Group : GraphicObject {
+    std::string name;
+
+    explicit Group(const std::string &name)
+            : name{name} {}
+
+    void draw() override {
+        std::cout << "Group " << name.c_str() << " contains:" << std::endl;
+        for (auto &&o : objects) {
+            o->draw();
+        }
+    }
+
+    std::vector<GraphicObject *> objects;
+};
+```
+Here’s how this API can be used:
+```cpp
+Group root("root");
+Circle c1, c2;
+root.objects.push_back(&c1);
+Group subgroup("sub");
+subgroup.objects.push_back(&c2);
+root.objects.push_back(&subgroup);
+root.draw();
+```
+
+### Neural Networks
+```cpp
+template<typename Self>
+struct SomeNeurons {
+    template<typename T>
+    void connect_to(T &other) {
+        for (auto &from : *static_cast<Self *>(this)) {
+            for (auto &to : other) {
+                from.out.push_back(&to);
+                to.in.push_back(&from);
+            }
+        }
+    }
+};
+```
+Note: the *Neural Networks* case is a much special case in my opinion... It seems hard to find a scenario perfectly suit this case.

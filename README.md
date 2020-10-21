@@ -2,5 +2,5 @@ This repository contains reading notes for books I'm currently reading or have a
 
 List:
 
-1. Design Patterns in Morden C++ [ >>>>>>>------------------ ] (28%)
+1. Design Patterns in Morden C++ [ >>>>>>>>----------------- ] (32%)
 2. Effective C++ [ >--------- ] (3.6%)
