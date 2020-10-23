@@ -450,3 +450,13 @@ struct SomeNeurons {
 };
 ```
 > Note: the *Neural Networks* case is a much special case in my opinion... It seems hard to find a scenario perfectly suit this case.
+
+## CHAPTER 9: Decorator
+The Decorator pattern allows us to enhance existing types without either modifying the original types (Open-Closed Principle) or causing an explosion of the number of derived types.
+* Dynamic composition allows you to compose something at runtime, typically by passing around references. It allows maximum flexibility, since the composition can happen at runtime in response to, for example, the user’s input.
+* Static composition implies that the object and its enhancements are composed at compile time via the use of templates. This means the exact set of enhancements on an object needs to be known at the moment of compilation, since it cannot be modified later.
+
+A decorator gives a class additional functionality while adhering to the OCP. Its crucial aspect is composability: several decorators can be applied to an object in any order.
+* Dynamic decorators can store references (or even store the entire values, if you want!) of the decorated objects and provide dynamic (runtime) composability, at the expense of not being able to access the underlying objects’ own members.
+* Static decorators use mixin inheritance (inheriting from template parameter) to compose decorators at compile-time. This loses any sort of runtime flexibility (you cannot recompose objects) but gives you access to the underlying object’s members. These objects are also fully initializable through constructor forwarding.
+* Functional decorators can wrap either blocks of code or particular functions to allow composition of behaviors.
