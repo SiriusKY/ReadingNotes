@@ -460,3 +460,10 @@ A decorator gives a class additional functionality while adhering to the OCP. It
 * Dynamic decorators can store references (or even store the entire values, if you want!) of the decorated objects and provide dynamic (runtime) composability, at the expense of not being able to access the underlying objects’ own members.
 * Static decorators use mixin inheritance (inheriting from template parameter) to compose decorators at compile-time. This loses any sort of runtime flexibility (you cannot recompose objects) but gives you access to the underlying object’s members. These objects are also fully initializable through constructor forwarding.
 * Functional decorators can wrap either blocks of code or particular functions to allow composition of behaviors.
+
+## CHAPTER 10: Façade
+The Façade design pattern is a way of putting a simple interface in front of one or more complicated subsystems.
+
+## CHAPTER 11: Flyweight
+* A Flyweight (also sometimes called a token or a cookie) is a temporary component that acts as a “smart reference” to something.
+* Typically, flyweights are used in situations where you have a very large number of very similar objects, and you want to minimize the amount of memory that is dedicated to storing all these values.
